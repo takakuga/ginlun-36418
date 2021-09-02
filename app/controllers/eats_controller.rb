@@ -1,4 +1,7 @@
 class EatsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :edit, :destroy]
+  before_action :move_to_index, except: [:index, :new, :create, :show]
+
   
   def index
     @eats = Eat.all
@@ -41,10 +44,18 @@ class EatsController < ApplicationController
     eat.destroy
      redirect_to root_path
   end
-end
 
 private
 
   def eat_params
     params.require(:eat).permit(:title, :category, :price, :detail, :image).merge(user_id: current_user.id)
   end
+
+
+  def move_to_index
+    @eat = Eat.find(params[:id])
+    if current_user.id != @eat.user.id
+      redirect_to action: :index
+    end
+  end
+end

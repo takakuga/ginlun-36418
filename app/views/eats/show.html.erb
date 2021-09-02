@@ -4,7 +4,7 @@
       <p class="prototype__hedding">
         <%= @eat.title %> 
       </p>
-      <%= link_to "by #{@eat.user}", eat_path(@eat.user.id), class: :eat__user %>
+      <%= link_to "by #{@eat.user.nickname}", eat_path(@eat.user.id), class: :eat__user %>
       <%# プロトタイプの投稿者とログインしているユーザーが同じであれば以下を表示する %>
       <% if user_signed_in? && current_user.id == @eat.user_id %> 
         <div class="eat__manage">
@@ -56,7 +56,7 @@
               <li class="comments_list">
               <ul>
                <%= comment.comment %>
-               <%= link_to comment.user.name, user_path(comment.user), class: :comment_user %>
+               <%= link_to comment.user.nickname, user_path(comment.user), class: :comment_user %>
             </li>
             <% end %>
           <%# // 投稿に紐づくコメントを一覧する処理を記述する %>
