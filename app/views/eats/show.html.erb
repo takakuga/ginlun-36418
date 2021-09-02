@@ -36,10 +36,10 @@
           </p>
         </div>
       </div>
-      <% if user_signed_in? %>
-      <div class="eat__comments">
+     <% if user_signed_in? %>
+      <div class="prototype__comments">
         <%# ログインしているユーザーには以下のコメント投稿フォームを表示する %>
-          <%= form_with model: [@eat],local: true do |f| %>
+          <%= form_with model: [@eat, @comment],local: true do |f| %>
             <div class="field">
                <%= f.label :comment, "コメント" %><br />
                <%= f.text_field :comment, id:"comment_text" %>
@@ -50,17 +50,17 @@
            <% end %> 
            <% end %> 
         <%# // ログインしているユーザーには上記を表示する %>
-        <%# <ul class="comments_lists"> %>
+        <ul class="comments_lists">
           <%# に紐づくコメントを一覧する処理を記述する %>
-              <%# <% @comments.each do |comment| %>
-              <%# <li class="comments_list"> %>
-              <%# <ul> %>
-               <%# <%= comment.comment %>
-               <%# <%= link_to comment.user.name, user_path(comment.user), class: :comment_user %>
-            <%# </li> %>
-            <%# <% end %> 
+              <% @comments.each do |comment| %>
+              <li class="comments_list">
+              <ul>
+               <%= comment.comment %>
+               <%= link_to comment.user.name, user_path(comment.user), class: :comment_user %>
+            </li>
+            <% end %>
           <%# // 投稿に紐づくコメントを一覧する処理を記述する %>
-        <%# </ul> %>
+        </ul>
       </div>
     </div>
   </div>

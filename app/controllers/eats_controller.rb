@@ -19,8 +19,8 @@ class EatsController < ApplicationController
 
   def show
   @eat = Eat.find(params[:id])
-  # @comment = Comment.new
-  # @comments = @prototype.comments.includes(:user)
+  @comment = Comment.new
+  @comments = @eat.comments.includes(:user)
   end
 
   def edit

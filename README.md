@@ -35,7 +35,7 @@
 | -------      | ---------- | ------------------------------ |
 | text         | text       | null: false                    |
 | user         | references | null: false, foreign_key: true |
-| prototype    | references | null: false, foreign_key: true |
+| eat          | references | null: false, foreign_key: true |
 
 - belongs_to :eat
 - belongs_to :user
