@@ -1,21 +1,26 @@
 <%= form_with model: @eat, local: true do |f|%>
   <div class="field">
-    <%= f.label :プロトタイプの名称 %><br />
+    <%= f.label :ランチのタイトル %><br />
     <%= f.text_field :title, id:"prototype_title" %>
   </div>
 
   <div class="field">
-    <%= f.label :キャッチコピー %><br />
-    <%= f.text_area :catch_copy, class: :form__text, id:"prototype_catch_copy" %>
+    <%= f.label :カテゴリー %><br />
+    <%= f.text_area :category, class: :form__text, id:"prototype_catch_copy" %>
   </div>
 
   <div class="field">
-    <%= f.label :コンセプト %><br />
-    <%= f.text_area :concept, class: :form__text, id:"prototype_concept" %>
+    <%= f.label :値段 %><br />
+    <%= f.text_area :price, class: :form__text, id:"prototype_concept" %>
   </div>
 
   <div class="field">
-    <%= f.label :プロトタイプの画像 %><br />
+    <%= f.label :詳細 %><br />
+    <%= f.text_area :detail, class: :form__text, id:"prototype_concept" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ランチの画像 %><br />
     <%= f.file_field :image, id:"prototype_image" %>
   </div>
 

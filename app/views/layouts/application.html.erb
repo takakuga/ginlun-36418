@@ -21,7 +21,7 @@
             <div class="nav__right"> 
             <%= current_user %>
               <%= link_to "ログアウト", destroy_user_session_path, class: :nav__btn, method: :delete %>
-              <%= link_to "New Eat", new_user_session_path, class: :nav__btn %>
+              <%= link_to "New Eat", new_eat_path, class: :nav__btn %>
             </div>
             <%# // インしているときは上記を表示するようにしましょう %>
            <%# ログインしていないときは以下を表示するようにしましょう %>
