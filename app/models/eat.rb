@@ -5,9 +5,17 @@ class Eat < ApplicationRecord
 
   with_options presence: true do
     validates :title
+    validates :shop_name
     validates :category
     validates :price
     validates :detail
     validates :image
+  end
+  def self.search(search)
+    if search != ""
+      Eat.where('category LIKE(?)', "%#{search}%")
+    else
+      Eat.all
+    end
   end
 end

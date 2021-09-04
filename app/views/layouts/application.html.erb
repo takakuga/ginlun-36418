@@ -14,21 +14,25 @@
       <div class="inner">
         <div class="nav">
           <div class="nav__left">
-            <%= link_to image_tag("food5.png", class: :logo), root_path %> 
+            <%= link_to "⭐️銀座ランチ⭐️", root_path,class: :logo %> 
           </div>
+          <%= form_with(url: search_eats_path, local: true, method: :get, class: "search-form") do |form| %>
+          <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
+          <%= form.submit "検索", class: "search-btn" %>
+          <% end %>
           <%# インしているときは以下を表示するようにしましょう %>
           <% if user_signed_in? %>
             <div class="nav__right"> 
-            <%= current_user.nickname %>
+            <%# <%= current_user.nickname %> 
+              <%= link_to "新規投稿", new_eat_path, class: :nav__btn %>
               <%= link_to "ログアウト", destroy_user_session_path, class: :nav__btn, method: :delete %>
-              <%= link_to "New Eat", new_eat_path, class: :nav__btn %>
             </div>
             <%# // インしているときは上記を表示するようにしましょう %>
            <%# ログインしていないときは以下を表示するようにしましょう %>
            <% else %>
             <div class="nav__right">
-              <%= link_to "ログイン", new_user_session_path, class: :nav__btn %>
               <%= link_to "新規登録", new_user_registration_path, class: :nav__btn %>
+              <%= link_to "ログイン", new_user_session_path, class: :nav__btn %>
             </div>
           <% end %>
           <%# // ログインしていないときは上記を表示するようにしましょう %>

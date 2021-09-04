@@ -1,10 +1,10 @@
 <main class="main">
   <div class="inner">
-    <div class="prototype__wrapper">
-      <p class="prototype__hedding">
+    <div class="eat__wrapper">
+      <p class="eat__hedding">
         <%= @eat.title %> 
       </p>
-      <%= link_to "by #{@eat.user.nickname}", eat_path(@eat.user.id), class: :eat__user %>
+      <%= link_to "#{@eat.user.nickname}さんの投稿", eat_path(@eat.user.id), class: :eat__user %>
       <%# プロトタイプの投稿者とログインしているユーザーが同じであれば以下を表示する %>
       <% if user_signed_in? && current_user.id == @eat.user_id %> 
         <div class="eat__manage">
@@ -16,6 +16,13 @@
       <div class="eat__image">
          <%= image_tag @eat.image %>
       </div>
+      <div class="eat__body">
+        <div class="eat__detail">
+          <p class="detail__title">店名</p>
+          <p class="detail__message">
+            <%= @eat.shop_name %>
+          </p>
+        </div>
       <div class="eat__body">
         <div class="eat__detail">
           <p class="detail__title">カテゴリー</p>
@@ -37,7 +44,7 @@
         </div>
       </div>
      <% if user_signed_in? %>
-      <div class="prototype__comments">
+      <div class="eat__comments">
         <%# ログインしているユーザーには以下のコメント投稿フォームを表示する %>
           <%= form_with model: [@eat, @comment],local: true do |f| %>
             <div class="field">

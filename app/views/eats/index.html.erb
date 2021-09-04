@@ -3,8 +3,9 @@
     <%# しているときは以下を表示する %>
     <% if user_signed_in? %>
       <div class="greeting">
+      <div style="background-image: url(../images/ginza.jpg);"></div>
       
-        こんにちは、
+        ようこそ！！
         <%= link_to "#{current_user.nickname} さん", user_path(current_user), class: :greeting__link %>
       </div>
       <% end %>
@@ -15,3 +16,5 @@
     </div>
   </div>
 </main>
+
+ <%# background-image: url(../images/ginza.png); %>

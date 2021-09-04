@@ -2,6 +2,7 @@ class CreateEats < ActiveRecord::Migration[6.0]
   def change
     create_table :eats do |t|
       t.string  :title,              null: false
+      t.string  :shop_name,          null: false
       t.string  :category,           null: false
       t.integer :price,              null: false
       t.text    :detail,             null: false

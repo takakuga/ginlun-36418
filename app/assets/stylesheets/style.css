@@ -13,11 +13,13 @@ p,
 div {
   margin: 0;
   padding: 0;
+  font-size: 20px;
 }
 
 body {
   font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN W3", sans-serif;
   color: #3b4043;
+  background-color: papayawhip;
 }
 
 li {
@@ -25,8 +27,9 @@ li {
 }
 
 img {
-  max-width: 100%;
+  max-width: 103%;
   vertical-align: bottom;
+  margin: auto;
 }
 
 a {
@@ -34,16 +37,16 @@ a {
   color: #3b4043;
 }
 
+
 /* ヘッダー */
 
 .header {
-  background-color: #f1f8fe;
   margin-bottom: 48px;
   padding: 20px 0;
 
 }
 .inner {
-  width: 1024px;
+  width: 1400px;
   margin: 0 auto;
 }
 .nav {
@@ -53,16 +56,17 @@ a {
 }
 .logo {
   width: 200px;
+  font-size: 60px;
 }
 .nav__btn{
   display: inline-block;
   padding: 0.4em 1.6em;
-  font-size: 0.8em;
-  color: #87CEFA;
+  font-size: 1.2em;
+  color: black;
   text-decoration: none;
   user-select: none;
-  border: 1px #87CEFA solid;
-  border-radius: 3px;
+  border: 3px #FFCCFF	 solid;
+  border-radius: 45px;
   transition: 0.4s ease;
 }
 .nav__btn:hover{
@@ -96,7 +100,7 @@ a {
 }
 
 .field{
-  margin: 10px 0;
+  margin: 20px 0;
 }
 
 .actions{
@@ -155,38 +159,39 @@ a {
   font-weight: bold;
 }
 .card__summary {
-  font-size: 16px;
+  font-size: 20px;
 }
 .card__user {
   display: block;
   font-size: 12px;
   color: #999;
-  text-align: right;
+  text-align: left;
   text-decoration: underline;
 }
 
 /* 詳細ページ */
-.prototype__wrapper{
+.eat__wrapper{
   min-height: calc(100vh - 161px);
 }
-.prototype__hedding{
-  font-size: 24px;
+.eat__hedding{
+  font-size: 30px;
   font-weight: bold;
   text-align: center;
 }
-.prototype__user{
+.eat__user{
   display: block;
   font-size: 16px;
   color: #999;
   text-align: center;
   text-decoration: underline;
 }
-.prototype__image{
+.eat__image{
   width: 40%;
   margin: 0 auto;
   padding: 16px 0;
+  display: flex;
 }
-.prototype__detail{
+.eat__detail{
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -196,12 +201,12 @@ a {
   font-size: 20px;
   font-weight: bold;
 }
-.prototype__manage{
+.eat__manage{
   display: flex;
   justify-content: center;
   padding-top: 16px;
 }
-.prototype__btn{
+.eat__btn{
   display: block;
   padding: 0.4em 1.6em;
   font-size: 0.4em;
@@ -213,12 +218,12 @@ a {
   transition: 0.4s ease;
   margin: 0 4px;
 }
-.prototype__btn:hover{
+.eat__btn:hover{
   color: #fff;
   background: #999;
 }
 
-.prototype__comments{
+.eat__comments{
   background-color: #f6f6f6;
   padding: 20px;
   margin: 28px 0 40px 0;
@@ -249,7 +254,7 @@ a {
   width: 50%;
 }
 .table__col1{
-  text-align: left;
+  text-align: center;
   font-weight: bold;
   background: #fafafa;
   border-collapse: collapse;
@@ -259,7 +264,7 @@ a {
 }
 .table__col2{
   text-align: left;
-  border: 1px solid #f5f5f5;
+  border: 2px #FFCCFF	 solid;
   border-collapse: collapse;
   width: 70%;
   padding: 16px 8px;
@@ -295,7 +300,7 @@ a {
     width: 48%;
     margin-bottom: 40px;
   }
-  .prototype_image{
+  .eat_image{
     width: 60%;
   }
 }
@@ -318,7 +323,7 @@ a {
   .card__summary {
     font-size: 14px;
   }
-  .prototype_image{
+  .eat_image{
     width: 100%;
   }
   .table{

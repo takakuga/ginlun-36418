@@ -19,6 +19,7 @@
 | Column      | Type       | Options                        |
 | ------      | ------     | -----------                    |
 | title       | string     | null: false                    |
+| shop_name   | string     | null: false                    |
 | category    | string     | null: false                    |
 | price       | integer    | null: false                    |
 | detail      | text       | null: false                    |

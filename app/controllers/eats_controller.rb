@@ -1,10 +1,10 @@
 class EatsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :destroy]
-  before_action :move_to_index, except: [:index, :new, :create, :show]
+  before_action :move_to_index, except: [:index, :new, :create, :show, :search]
 
   
   def index
-    @eats = Eat.all
+    @eats = Eat.includes(:user).order('created_at DESC')
   end
 
   def new
@@ -45,10 +45,14 @@ class EatsController < ApplicationController
      redirect_to root_path
   end
 
+  def search
+    @eats = Eat.search(params[:keyword])
+  end
+
 private
 
   def eat_params
-    params.require(:eat).permit(:title, :category, :price, :detail, :image).merge(user_id: current_user.id)
+    params.require(:eat).permit(:title, :shop_name, :category, :price, :detail, :image).merge(user_id: current_user.id)
   end
 
 

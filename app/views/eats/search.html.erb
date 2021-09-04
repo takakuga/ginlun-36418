@@ -1,0 +1,8 @@
+<div class="main">
+  <div class="inner">
+    <div class="form__wrapper">
+    <h2 class="page-heading">検索結果</h2>
+  <% @eats.each do |eat| %>
+    <%= render partial: "eat", locals: { eat: eat } %>
+  <% end %>
+</div>
