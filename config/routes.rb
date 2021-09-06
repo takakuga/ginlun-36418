@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: "eats#index"
   resources :eats do
     resources :goods, only: [:create, :destroy]
-    resources :comments, only: :create
+    resources :comments, only: [:create, :destroy]
   collection do
     get 'search'
   end

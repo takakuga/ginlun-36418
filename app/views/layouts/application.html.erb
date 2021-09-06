@@ -21,14 +21,14 @@
           <%= form.text_field :keyword, placeholder: "カテゴリーで検索する", class: "search-input" %>
           <%= form.submit "検索", class: "search-btn" %>
           <% end %>
-          
+
           <% if user_signed_in? %>
             <div class="nav__right"> 
-            
               <%= link_to "新規投稿", new_eat_path, class: :nav__btn %>
               <%= link_to "ログアウト", destroy_user_session_path, class: :nav__btn, method: :delete %>
             </div>
            
+             <%= "#{current_user.nickname}さん"%>
            <% else %>
             <div class="nav__right">
               <%= link_to "新規登録", new_user_registration_path, class: :nav__btn %>
