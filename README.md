@@ -40,3 +40,13 @@
 
 - belongs_to :eat
 - belongs_to :user
+
+## goods テーブル
+
+| Column       | Type       | Options                        |
+| -------      | ---------- | ------------------------------ |
+| user         |            | null: false, foreign_key: true |
+| eat          | references | null: false, foreign_key: true |
+
+- belongs_to :eat
+- belongs_to :user

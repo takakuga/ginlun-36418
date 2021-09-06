@@ -1,5 +1,5 @@
 class EatsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :edit, :destroy]
+  before_action :authenticate_user!, only: [:new, :edit, :destroy, :create, :update]
   before_action :move_to_index, except: [:index, :new, :create, :show, :search]
 
   

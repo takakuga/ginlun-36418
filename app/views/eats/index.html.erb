@@ -1,6 +1,7 @@
 <main class="main">
   <div class="inner">
-    <%# しているときは以下を表示する %>
+    <div class="form__wrapper">
+    
     <% if user_signed_in? %>
       <div class="greeting">
       <div style="background-image: url(../images/ginza.jpg);"></div>
@@ -9,12 +10,26 @@
         <%= link_to "#{current_user.nickname} さん", user_path(current_user), class: :greeting__link %>
       </div>
       <% end %>
-     <%# // しているときは上記を表示する %>
+     
     <div class="card__wrapper">
-      <%# 投稿機能実装後、部分テンプレートでプロトタイプ投稿一覧を表示する %>
-      <%= render partial: 'eat', collection: @eats %>
+      
+      
+      <% if user_signed_in? %>
+     <% @eats.each do |eat| %>
+   <% if current_user.already_gooded?(eat) %>
+        <%= link_to eat_good_path(eat.id, eat), method: :delete do %>
+        <i class="fas fa-heart"></i> 
+        <% end %>
+        <%= eat.goods.count %>
+        <% else %>
+        <%= link_to eat_goods_path(eat), method: :post do %>
+       <i class="far fa-heart"></i>
+        <% end %>
+        <%= eat.goods.count %>
+         <% end %>
+    <%= render partial: "eat", locals: { eat: eat } %>
+          <% end %>
+      <% end %>
     </div>
   </div>
 </main>
-
- <%# background-image: url(../images/ginza.png); %>

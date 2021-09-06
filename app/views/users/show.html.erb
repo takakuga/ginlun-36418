@@ -1,6 +1,6 @@
 <div class="main">
   <div class="inner">
-    <div class="user__wrapper">
+    <div class="form__wrapper">
       <h2 class="page-heading">
         <%= "#{@user.nickname} さんの情報"%>
       </h2>
@@ -19,8 +19,24 @@
       <h2 class="page-heading">
         <%= "#{@user.nickname} さんのランチ一覧"%>
       </h2>
-      <div class="user__card">
-      <%= render partial: 'eats/eat', collection: @eats %>
+
+      <div class="card__wrapper">
+       <% if user_signed_in? %>
+     <% @eats.each do |eat| %>
+   <% if current_user.already_gooded?(eat) %>
+        <%= link_to eat_good_path(eat.id, eat), method: :delete do %>
+        <i class="fas fa-heart"></i> 
+        <% end %>
+        <%= eat.goods.count %>
+        <% else %>
+        <%= link_to eat_goods_path(eat), method: :post do %>
+       <i class="far fa-heart"></i>
+        <% end %>
+        <%= eat.goods.count %>
+         <% end %>
+       <%= render partial:'eats/eat', locals: { eat: eat } %>
+          <% end %>
+      <% end %>
         <%# 部分テンプレートでそのユーザーがしたプロトタイプ一覧を表示する %>
       </div>
     </div>

@@ -4,15 +4,28 @@
       <p class="eat__hedding">
         <%= @eat.title %> 
       </p>
-      <%= link_to "#{@eat.user.nickname}さんの投稿", eat_path(@eat.user.id), class: :eat__user %>
-      <%# プロトタイプの投稿者とログインしているユーザーが同じであれば以下を表示する %>
+    <% if user_signed_in? %>
+      <% if current_user.already_gooded?(@eat) %>
+        <%= link_to eat_good_path(@eat.id, @eat), method: :delete do %>
+        <i class="fas fa-heart"></i> 
+        <% end %>
+        <%= @eat.goods.count %>
+        <% else %>
+        <%= link_to eat_goods_path(@eat), method: :post do %>
+       <i class="far fa-heart"></i>
+        <% end %>
+        <%= @eat.goods.count %>
+         <% end %>
+         <% end %>
+      <%= link_to "#{@eat.user.nickname}さんの投稿", user_path(@eat.user.id), class: :eat__user %>
+      
       <% if user_signed_in? && current_user.id == @eat.user_id %> 
         <div class="eat__manage">
           <%= link_to "編集する", edit_eat_path(@eat.id), class: :eat__btn %>
           <%= link_to "削除する", eat_path(@eat.id), method: :delete, class: :eat__btn %>
         </div>
       <% end %>
-      <%# // プロトタイプの投稿者とログインしているユーザーが同じであれば上記を表示する %>
+      
       <div class="eat__image">
          <%= image_tag @eat.image %>
       </div>
@@ -45,7 +58,7 @@
       </div>
      <% if user_signed_in? %>
       <div class="eat__comments">
-        <%# ログインしているユーザーには以下のコメント投稿フォームを表示する %>
+        
           <%= form_with model: [@eat, @comment],local: true do |f| %>
             <div class="field">
                <%= f.label :comment, "コメント" %><br />
@@ -56,9 +69,9 @@
             </div>
            <% end %> 
            <% end %> 
-        <%# // ログインしているユーザーには上記を表示する %>
+        
         <ul class="comments_lists">
-          <%# に紐づくコメントを一覧する処理を記述する %>
+          
               <% @comments.each do |comment| %>
               <li class="comments_list">
               <ul>
@@ -66,7 +79,7 @@
                <%= link_to comment.user.nickname, user_path(comment.user), class: :comment_user %>
             </li>
             <% end %>
-          <%# // 投稿に紐づくコメントを一覧する処理を記述する %>
+          
         </ul>
       </div>
     </div>
