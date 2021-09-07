@@ -2,9 +2,13 @@
   <div class="inner">
     <div class="form__wrapper">
     <h2 class="page-heading">検索結果</h2>
-    <% if user_signed_in? %>
+     <%= form_with(url: search_eats_path, local: true, method: :get, class: "search-form") do |form| %>
+          <%= form.text_field :keyword, placeholder: "カテゴリーで検索する", class: "search-input" %>
+          <%= form.submit "検索", class: "search-btn" %>
+          <% end %>
+
   <% @eats.reverse.each do |eat| %>
-   <% if current_user.already_gooded?(eat) %>
+   <% if eat.user.already_gooded?(eat) %>
         <%= link_to eat_good_path(eat.id, eat), method: :delete do %>
         <i class="fas fa-heart"></i> 
         <% end %>
@@ -17,6 +21,4 @@
          <% end %>
     <%= render partial: "eat", locals: { eat: eat } %>
           <% end %>
-      <% end %>
-    
 </div>

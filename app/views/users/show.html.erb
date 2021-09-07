@@ -21,9 +21,8 @@
       </h2>
 
       <div class="card__wrapper">
-       <% if user_signed_in? %>
      <% @eats.each do |eat| %>
-   <% if current_user.already_gooded?(eat) %>
+   <% if eat.user.already_gooded?(eat) %>
         <%= link_to eat_good_path(eat.id, eat), method: :delete do %>
         <i class="fas fa-heart"></i> 
         <% end %>
@@ -36,7 +35,6 @@
          <% end %>
        <%= render partial:'eats/eat', locals: { eat: eat } %>
           <% end %>
-      <% end %>
         <%# 部分テンプレートでそのユーザーがしたプロトタイプ一覧を表示する %>
       </div>
     </div>

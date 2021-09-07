@@ -12,6 +12,7 @@
 ### Association
 
 - has_many :eat_users
+- has_many :goods
 - has_many :comments
 
 ## eats テーブル
@@ -28,6 +29,7 @@
 ### Association
 
 - has_many :eat_users
+- has_many :goods
 - has_many :comments
 
 ## comments テーブル
