@@ -4,32 +4,36 @@
     
     <% if user_signed_in? %>
       <div class="greeting">
-      <div style="background-image: url(../images/ginza.jpg);"></div>
+      <%# <div style="background-image: url(../images/ginza.jpg);"></div> %>
       
         ようこそ！！
         <%= link_to "#{current_user.nickname} さん", user_path(current_user), class: :greeting__link %>
       </div>
       <% end %>
-     
+      <%= form_with(url: search_eats_path, local: true, method: :get, class: "search-form") do |form| %>
+          <%= form.text_field :keyword, placeholder: "カテゴリーで検索する", class: "search-input" %>
+          <%= form.submit "検索", class: "search-btn" %>
+          <% end %>
     <div class="card__wrapper">
       
-      
-      <% if user_signed_in? %>
+    
+     
      <% @eats.each do |eat| %>
-   <% if current_user.already_gooded?(eat) %>
+   <% if eat.user.already_gooded?(eat) %>
         <%= link_to eat_good_path(eat.id, eat), method: :delete do %>
         <i class="fas fa-heart"></i> 
         <% end %>
         <%= eat.goods.count %>
         <% else %>
-        <%= link_to eat_goods_path(eat), method: :post do %>
+        <%= link_to eat_goods_path(eat.id), method: :post do %>
        <i class="far fa-heart"></i>
         <% end %>
         <%= eat.goods.count %>
          <% end %>
     <%= render partial: "eat", locals: { eat: eat } %>
           <% end %>
-      <% end %>
+     
     </div>
   </div>
 </main>
+ <%# background-image: url(../images/ginza.png); %>

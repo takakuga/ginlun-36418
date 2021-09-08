@@ -2,10 +2,10 @@
   <div class="inner">
     <div class="eat__wrapper">
       <p class="eat__hedding">
+      
         <%= @eat.title %> 
       </p>
-    <% if user_signed_in? %>
-      <% if current_user.already_gooded?(@eat) %>
+      <% if @eat.user.already_gooded?(@eat) %>
         <%= link_to eat_good_path(@eat.id, @eat), method: :delete do %>
         <i class="fas fa-heart"></i> 
         <% end %>
@@ -16,7 +16,7 @@
         <% end %>
         <%= @eat.goods.count %>
          <% end %>
-         <% end %>
+        
       <%= link_to "#{@eat.user.nickname}さんの投稿", user_path(@eat.user.id), class: :eat__user %>
       
       <% if user_signed_in? && current_user.id == @eat.user_id %> 
@@ -72,11 +72,14 @@
         
         <ul class="comments_lists">
           
-              <% @comments.each do |comment| %>
+              <% @comments.reverse.each do |comment| %>
               <li class="comments_list">
               <ul>
                <%= comment.comment %>
                <%= link_to comment.user.nickname, user_path(comment.user), class: :comment_user %>
+               <% if current_user == comment.user %>
+                <%= link_to '削除', eat_comment_path(comment.eat.id, comment.id), method: :delete %>
+                 <% end %>
             </li>
             <% end %>
           
