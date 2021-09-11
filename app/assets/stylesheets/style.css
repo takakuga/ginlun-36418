@@ -17,7 +17,7 @@ div {
 }
 
 h3 {
-  font-size: 22px;
+  font-size: 26px;
 }
 
 body {
@@ -160,6 +160,7 @@ i {
 }
 .greeting__link{
   color: black;
+  font-size: 25px;
 }
 
 .greeting__link:hover{
