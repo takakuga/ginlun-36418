@@ -16,6 +16,10 @@ div {
   font-size: 20px;
 }
 
+h3 {
+  font-size: 26px;
+}
+
 body {
   font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN W3", sans-serif;
   color: #3b4043;
@@ -72,6 +76,11 @@ i {
   font-size: 75px;
   color: #3b4043
 }
+.logo:hover{
+  color: #fff;
+  background: #87CEFA;
+}
+
 .nav__btn{
   display: inline-block;
   padding: 0.4em 1.6em;
@@ -141,6 +150,7 @@ i {
 .form__btn:hover {
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2), 0 1px 8px 0 rgba(0, 0, 0, 0.12);
   cursor: pointer;
+  background-color: blue;
 }
 
 /* メイン */
@@ -149,9 +159,15 @@ i {
   margin-bottom: 20px;
 }
 .greeting__link{
-  text-decoration: underline;
   color: black;
+  font-size: 25px;
 }
+
+.greeting__link:hover{
+  color: #fff;
+  background: #87CEFA;
+}
+
 .page-heading {
   font-size: 30px;
   margin-bottom: 28px;
@@ -182,11 +198,25 @@ i {
 }
 .card__user {
   display: block;
-  font-size: 20px;
+  padding: 0.4em 0.5em;
+  font-size: 0.8em;
   color: #999;
-  text-align: left;
-  text-decoration: underline;
+  text-decoration: none;
+  user-select: none;
+  border: 1px #999 solid;
+  border-radius: 3px;
+  transition: 0.4s ease;
+  margin: 0 4px;
+  width: 180px;
+  text-align: center;
 }
+
+.card__user:hover{
+  color: #fff;
+  background: #87CEFA;
+  text-align: center;
+}
+
 
 /* 詳細ページ */
 .eat__wrapper{
@@ -199,12 +229,27 @@ i {
   text-align: center;
 }
 .eat__user{
-  display: block;
-  font-size: 20px;
+  align-items: center;
+  padding: 0.4em 0.5em;
+  font-size: 0.8em;
   color: #999;
+  text-decoration: none;
+  user-select: none;
+  border: 1px #999 solid;
+  border-radius: 3px;
+  transition: 0.4s ease;
+  margin: 0 4px;
+  width: 180px;
   text-align: center;
-  text-decoration: underline;
 }
+
+.eat__user:hover{
+  color: #fff;
+  background: #87CEFA;
+  text-align: center;
+}
+
+
 .eat__image{
   width: 80%;
   margin: 0 auto;

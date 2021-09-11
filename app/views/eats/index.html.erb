@@ -5,9 +5,9 @@
     <% if user_signed_in? %>
       <div class="greeting">
       <%# <div style="background-image: url(../images/ginza.jpg);"></div> %>
-      
-        ようこそ！！
-        <%= link_to "#{current_user.nickname} さん", user_path(current_user), class: :greeting__link %>
+    <h3>✨〜銀座で素敵なランチを〜✨</h3>
+
+        <%= link_to "ようこそ！！#{current_user.nickname}さん(^ ^)", user_path(current_user), class: :greeting__link %>
       </div>
       <% end %>
       <%= form_with(url: search_eats_path, local: true, method: :get, class: "search-form") do |form| %>
