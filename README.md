@@ -34,10 +34,6 @@
 
 　・実際に私が通っている店から、多くの声をお聞きしました。
 
-　・参考と確証の為に自分のインスタを紹介させて頂きます。
-
-　　[![Image from Gyazo](https://i.gyazo.com/a33cdf4e74ace1c878261de7afc518ec.jpg)](https://gyazo.com/a33cdf4e74ace1c878261de7afc518ec)
-
 
 # 要件定義
 
