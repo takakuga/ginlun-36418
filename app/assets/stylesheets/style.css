@@ -293,7 +293,7 @@ i {
 .eat__comments{
   background-color: #f6f6f6;
   padding: 20px;
-  margin: 28px 0 40px 0;
+  margin: 35px 0 40px 0;
 }
 
 .comments_lists{
@@ -354,6 +354,8 @@ i {
   color: #fff;
   font-size: 10px;
 }
+
+
 
 /* タブレット対応 */
 @media (max-width: 1024px) {
